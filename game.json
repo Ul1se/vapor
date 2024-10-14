@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Galactic Odyssey",
+        "background_image": "https://example.com/galactic-odyssey.jpg",
+        "rating": 4.8
+    },
+    {
+        "name": "Pixel Racer",
+        "background_image": "https://example.com/pixel-racer.jpg",
+        "rating": 4.5
+    }
+]

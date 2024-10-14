@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Galactic Odyssey",
+        "image": "https://example.com/galactic-odyssey.jpg",
+        "description": "Una aventura espacial épica llena de desafíos.",
+        "rating": 4.8
+    },
+    {
+        "name": "Pixel Racer",
+        "image": "https://example.com/pixel-racer.jpg",
+        "description": "Compite en emocionantes carreras con gráficos retro.",
+        "rating": 4.5
+    },
+    {
+        "name": "Dungeon Crawler",
+        "image": "https://example.com/dungeon-crawler.jpg",
+        "description": "Explora mazmorras y enfrenta criaturas aterradoras.",
+        "rating": 4.7
+    },
+    {
+        "name": "Cyber Ninja",
+        "image": "https://example.com/cyber-ninja.jpg",
+        "description": "Un juego de acción donde eres un ninja en un futuro distópico.",
+        "rating": 4.9
+    },
+    {
+        "name": "Arcade Adventures",
+        "image": "https://example.com/arcade-adventures.jpg",
+        "description": "Un juego de plataformas clásico lleno de nostalgia.",
+        "rating": 4.6
+    }
+]

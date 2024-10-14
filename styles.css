@@ -1,0 +1,528 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1a1a1d;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+nav {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 2em;
+    color: #ff66c4;
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hero {
+    text-align: center;
+    padding: 5em 0;
+    background: linear-gradient(to right, #ff66c4, #7d5ba6);
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 4em;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+.featured-games, .library, .profile, .community {
+    padding: 2em;
+    background-color: #282828;
+}
+
+h2 {
+    color: #ff66c4;
+}
+
+.game-card, .game-list {
+    background-color: #333;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #333;
+    padding: 1em;
+    text-align: center;
+    color: #999;
+}
+
+/* Estilo cuando se selecciona un juego de la biblioteca */
+.selected {
+    background-color: #ff66c4;
+    color: #000;
+    border: 2px solid #ff66c4;
+    box-shadow: 0px 0px 15px 5px rgba(255, 102, 196, 0.5);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transición suave cuando se deselecciona */
+.game-list {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo para el carrito de compras */
+.cart {
+    background-color: #282828;
+    padding: 2em;
+}
+
+#cart-items {
+    background-color: #333;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+/* Estilo de la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #1a1a1d;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ff66c4;
+    width: 80%;
+    color: #fff;
+}
+
+.close {
+    color: #ff66c4;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    cursor: pointer;
+}
+/* styles.css */
+
+/* Botones */
+button {
+    background-color: #ff77ff;  /* Color vibrante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ff44ff;  /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+/* Estilo para las reseñas */
+.review-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);  /* Fondo semi-transparente */
+    border-radius: 8px;
+}
+
+/* Estilo para la lista de notificaciones */
+#notificaciones {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo oscuro */
+    color: white;
+    border-radius: 8px;
+}
+/* styles.css */
+
+/* Menú de Navegación */
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+/* styles.css */
+
+/* Animación al cargar los juegos */
+.game-item {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+/* styles.css */
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #registration-form, #login-form, #review-form {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .game-item {
+        width: 100%;  /* Ajustar ancho de los juegos en móviles */
+    }
+}
+/* styles.css */
+
+/* Mejoras para mejorar la accesibilidad en móviles */
+#notifications {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    max-height: 50%;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#notifications h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Ajustar estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #profile-settings, #review-form {
+        width: 95%;
+    }
+
+    #user-profile {
+        margin-top: 20px;
+    }
+}
+/* styles.css */
+
+/* Mejora de la barra de búsqueda */
+#search-bar {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#search-input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Mejora de la sección de reseñas */
+.reviews {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.reviews textarea {
+    width: 100%;
+    height: 60px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Mejora de la sección de seguimiento */
+#follow-section {
+    margin: 20px;
+}
+/* styles.css */
+
+/* Estilo para la sección de favoritos */
+.favorites {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+/* Estilo para la sección de reseñas */
+.reviews {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+/* Estilo para el contenedor de búsqueda */
+#search-results {
+    margin: 20px;
+}
+/* styles.css */
+
+/* Estilo para las reseñas */
+.reviews {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.review-item {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* styles.css */
+
+/* Estilo para la barra de búsqueda */
+.search-bar {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilo para los resultados de búsqueda */
+.game-item {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+}
+/* styles.css */
+
+/* Estilo para la sección de amigos */
+.friends-section {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.friend-item {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* styles.css */
+
+/* Estilo para la sección de notificaciones */
+.notifications-section {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.notification-item {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+/* styles.css */
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 600px) {
+    .friends-section, .notifications-section {
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .notification-item, .friend-item {
+        font-size: 14px;
+    }
+}
+/* styles.css */
+
+/* Efecto hover en elementos de notificación y amigos */
+.notification-item:hover, .friend-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+/* styles.css */
+
+/* Estilo para la sección de juegos destacados */
+.featured-games-section {
+    margin: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.game-item {
+    width: calc(33.333% - 20px); /* Tres elementos por fila */
+    background: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.game-item:hover {
+    transform: scale(1.05);
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+}
+
+.game-item h4 {
+    margin: 10px;
+    font-size: 18px;
+}
+/* Ajustes en styles.css */
+.game-item {
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Estilo para márgenes y padding */
+.featured-games-section,
+.navbar {
+    margin: 20px 0;
+    padding: 10px;
+}
+:root {
+    --neon-pink: #ff4d94;
+    --neon-purple: #9c27b0;
+    --neon-blue: #00bcd4;
+    --background-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--neon-blue);
+}
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centrar las tarjetas */
+}
+
+.game-item {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px; /* Ajusta el ancho según sea necesario */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-image {
+    width: 100%; /* Ajustar imagen al contenedor */
+    border-radius: 10px;
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vapor - Tu biblioteca de videojuegos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Vapor</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#juegos-destacados">Juegos Destacados</a></li>
+                <li><a href="#biblioteca">Biblioteca</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#carrito">Carrito <span id="cart-count">0</span></a></li>
+                <li class="dropdown">
+                    <a href="#más" class="dropbtn">Más</a>
+                    <div class="dropdown-content">
+                        <a href="#soporte">Soporte</a>
+                        <a href="#blog">Blog</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Bienvenido a Vapor</h1>
+        <p>Tu plataforma de videojuegos al estilo vaporwave</p>
+    </section>
+<!-- Mensaje de Bienvenida -->
+<div id="welcome-message"></div>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+
+    <!-- Nueva Sección: Juegos Destacados -->
+    <section id="juegos-destacados" class="featured-games">
+        <h2>Juegos Destacados</h2>
+        <div class="game-card" onclick="openModal('Apocalip')">
+            <img src="https://wallpapers.com/images/hd/hd-video-game-ghost-recon-online-yeas0k7fls2o17j2.jpg" alt="Juego 1">
+            <h3>Apocalips</h3>
+            <p>Descripción breve del juego.</p>
+            <button class="add-to-cart" onclick="addToCart(event, 'Juego 1')">Añadir al Carrito</button>
+        </div>
+        <div class="game-card" onclick="openModal('Vapor 2')">
+            <img src="https://i.pinimg.com/originals/23/da/dd/23dadd0085bf19056c6cd96ca90079ce.jpg" alt="Juego 2">
+            <h3>Vapor 2</h3>
+            <p>Descripción breve del juego.</p>
+            <button class="add-to-cart" onclick="addToCart(event, 'Juego 2')">Añadir al Carrito</button>
+        </div>
+        <!-- Añadir más juegos destacados -->
+    </section>
+
+    <!-- Nueva Sección: Modal para detalles del juego -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Título del Juego</h2>
+            <p id="modal-description">Descripción completa del juego.</p>
+            <p id="modal-price">Precio: $XX.XX</p>
+        </div>
+    </div>
+
+    <!-- Nueva Sección: Carrito de Compras -->
+    <section id="carrito" class="cart">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items">
+            <p>No tienes juegos en tu carrito.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Vapor. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- Nueva Sección: Carrito de Compras -->
+<section id="carrito" class="cart">
+    <h2>Carrito de Compras</h2>
+    <div id="cart-items">
+        <p>No tienes juegos en tu carrito.</p>
+    </div>
+    <button id="checkout" onclick="checkout()">Finalizar Compra</button>
+</section>
+<!-- Nueva Sección: Autenticación -->
+<section id="autenticacion">
+    <h2>Iniciar Sesión / Registrarse</h2>
+    <form id="login-form">
+        <h3>Iniciar Sesión</h3>
+        <input type="text" id="username" placeholder="Nombre de Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="button" onclick="login()">Iniciar Sesión</button>
+    </form>
+
+    <form id="register-form">
+        <h3>Registrarse</h3>
+        <input type="text" id="new-username" placeholder="Nuevo Nombre de Usuario" required>
+        <input type="password" id="new-password" placeholder="Nueva Contraseña" required>
+        <button type="button" onclick="register()">Registrarse</button>
+    </form>
+</section>
+<!-- Ventana Modal -->
+<div id="gameModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <p id="modal-price"></p>
+        <div class="review-section">
+            <h3>Deja tu reseña:</h3>
+            <textarea id="review-text" placeholder="Escribe tu reseña aquí..."></textarea>
+            <button id="submit-review" onclick="submitReview()">Enviar Reseña</button>
+        </div>
+        <div id="reviews-list"></div>
+    </div>
+</div>
+<!-- Página de Perfil de Usuario -->
+<section id="perfil">
+    <h2>Mi Perfil</h2>
+    <div id="user-info">
+        <p>Nombre de Usuario: <span id="username-display"></span></p>
+        <p>Juegos Comprados: <span id="purchased-games"></span></p>
+    </div>
+    <h3>Mis Reseñas</h3>
+    <div id="user-reviews"></div>
+</section>
+<!-- Sección de Notificaciones -->
+<section id="notificaciones">
+    <h2>Notificaciones</h2>
+    <div id="notification-list"></div>
+</section>
+<!-- Barra de Búsqueda -->
+<div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar juegos..." onkeyup="searchGames()">
+</div>
+
+</div>
+<!-- Modificación en cada juego -->
+<div class="game-item">
+    <img src="game-image.jpg" alt="Nombre del Juego">
+    <h3>Nombre del Juego</h3>
+    <p>Descripción del juego.</p>
+    <p>Precio: $10.00</p>
+    <button onclick="addToCart('Nombre del Juego')">Añadir al carrito</button>
+    <span class="favorite-icon" onclick="toggleFavorite(this)">⭐</span> <!-- Icono de favorito -->
+</div>
+<!-- Sección de Favoritos en el Perfil -->
+<div id="user-favorites">
+    <h3>Mis Juegos Favoritos</h3>
+    <div id="favorites-list"></div>
+</div>
+
+<!-- Formulario de Registro -->
+<div id="registration-form">
+    <h2>Registro de Usuario</h2>
+    <form onsubmit="registerUser(event)">
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" required>
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required>
+
+        <input type="submit" value="Registrar">
+    </form>
+</div>
+<!-- Formulario de Inicio de Sesión -->
+<div id="login-form">
+    <h2>Iniciar Sesión</h2>
+    <form onsubmit="loginUser(event)">
+        <label for="login-username">Nombre de Usuario:</label>
+        <input type="text" id="login-username" required>
+
+        <label for="login-password">Contraseña:</label>
+        <input type="password" id="login-password" required>
+
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</div>
+
+<!-- Formulario de Reseñas -->
+<div id="review-form">
+    <h2>Dejar una Reseña</h2>
+    <form onsubmit="submitReview(event)">
+        <label for="review-game">Juego:</label>
+        <select id="review-game">
+            <option value="Nombre del Juego 1">Nombre del Juego 1</option>
+            <option value="Nombre del Juego 2">Nombre del Juego 2</option>
+            <!-- Agregar más opciones según los juegos disponibles -->
+        </select>
+        
+        <label for="review-text">Tu Reseña:</label>
+        <textarea id="review-text" required></textarea>
+
+        <label for="review-rating">Calificación:</label>
+        <select id="review-rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</div>
+<!-- Ejemplo de un juego en la lista de juegos destacados -->
+<div class="game-item">
+    <h3>Nombre del Juego 1</h3>
+    <button onclick="toggleFavorite('Nombre del Juego 1')">Agregar a Favoritos</button>
+</div>
+<!-- Sección de Juegos Favoritos en el Perfil -->
+<div id="user-profile">
+    <h2>Perfil de Usuario: <span id="user-name"></span></h2>
+    <h3>Juegos Favoritos</h3>
+    <div id="favorites-list"></div>
+</div>
+<!-- Configuración del Perfil -->
+<div id="profile-settings">
+    <h2>Configuración de Perfil</h2>
+    <form onsubmit="updateProfile(event)">
+        <label for="new-password">Nueva Contraseña:</label>
+        <input type="password" id="new-password">
+
+        <input type="submit" value="Actualizar Contraseña">
+    </form>
+</div>
+<!-- Sección de Notificaciones -->
+<div id="notifications">
+    <h2>Notificaciones</h2>
+    <div id="notification-list"></div>
+</div>
+<!-- Barra de búsqueda -->
+<div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar juegos..." oninput="searchGames()">
+</div>
+<!-- Contenedor para los resultados de búsqueda -->
+<div id="search-results"></div>
+<!-- Sección de Reseñas -->
+<div class="reviews">
+    <h3>Reseñas</h3>
+    <div id="review-list"></div>
+    <form onsubmit="submitReview(event)">
+        <textarea id="review-text" placeholder="Escribe tu reseña aquí..." required></textarea>
+        <input type="number" id="review-rating" min="1" max="5" placeholder="Calificación (1-5)" required>
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</div>
+<!-- Sección de Seguimiento en el Perfil -->
+<div id="follow-section">
+    <h3>Seguir a Otros Usuarios</h3>
+    <input type="text" id="follow-username" placeholder="Nombre de usuario a seguir">
+    <button onclick="followUser()">Seguir</button>
+</div>
+
+<div id="followed-users">
+    <h3>Usuarios Seguidos</h3>
+    <div id="followed-list"></div>
+</div>
+<!-- Sección de Registro -->
+<div class="register">
+    <h2>Registro</h2>
+    <form onsubmit="registerUser(event)">
+        <input type="text" id="register-username" placeholder="Nombre de usuario" required>
+        <input type="password" id="register-password" placeholder="Contraseña" required>
+        <input type="submit" value="Registrarse">
+    </form>
+</div>
+<!-- Sección de Inicio de Sesión -->
+<div class="login">
+    <h2>Inicio de Sesión</h2>
+    <form onsubmit="loginUser(event)">
+        <input type="text" id="login-username" placeholder="Nombre de usuario" required>
+        <input type="password" id="login-password" placeholder="Contraseña" required>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</div>
+<!-- Sección de Juegos Favoritos -->
+<div class="favorites">
+    <h3>Juegos Favoritos</h3>
+    <div id="favorite-list"></div>
+</div>
+<!-- Sección de Reseñas -->
+<div class="reviews">
+    <h3>Reseñas</h3>
+    <div id="review-list"></div>
+    <form onsubmit="submitReview(event)">
+        <input type="text" id="review-username" placeholder="Tu nombre" required>
+        <textarea id="review-text" placeholder="Escribe tu reseña aquí..." required></textarea>
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</div>
+<!-- Campo de Búsqueda -->
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar juegos..." oninput="searchGames()">
+</div>
+
+<!-- Contenedor para los resultados de búsqueda -->
+<div id="search-results"></div>
+<!-- Sección de Amigos -->
+<div class="friends-section">
+    <h3>Amigos</h3>
+    <div id="friend-list"></div>
+    <input type="text" id="friend-username" placeholder="Nombre de usuario para agregar">
+    <button onclick="addFriend()">Agregar Amigo</button>
+</div>
+<!-- Sección de Notificaciones -->
+<div class="notifications-section">
+    <h3>Notificaciones</h3>
+    <div id="notification-list"></div>
+</div>
+<!-- Sección de Juegos Destacados -->
+<div class="featured-games-section">
+    <h3>Juegos Destacados</h3>
+    <div id="featured-games" class="games-container"></div>
+</div>
+
+</nav>
+<div class="reviews-section">
+    <h3>Reseñas de Juegos</h3>
+    <form id="review-form">
+        <input type="text" id="review-text" placeholder="Deja tu reseña aquí..." required>
+        <button type="submit">Enviar Reseña</button>
+    </form>
+    <div id="reviews-list"></div>
+</div>
+<div class="featured-games-section" id="featured-games">
+    <h2>Juegos Destacados</h2>
+    <div id="games-list" class="games-list"></div>
+</div>
